@@ -491,8 +491,8 @@ func (it *convertIter) convertEvent(ev *oldtrace.Event) (OUT Event, ERR error) {
 		if parent == 0 {
 			parent = uint64(NoTask)
 		}
-		mappedArgs = [4]uint64{ev.Args[0], parent, ev.Args[3], uint64(ev.StkID)}
-		name, _ := it.evt.strings.get(stringID(ev.Args[3]))
+		mappedArgs = [4]uint64{ev.Args[0], parent, ev.Args[2], uint64(ev.StkID)}
+		name, _ := it.evt.strings.get(stringID(ev.Args[2]))
 		it.tasks[TaskID(ev.Args[0])] = taskState{name: name, parentID: TaskID(ev.Args[1])}
 	case oldtrace.EvUserTaskEnd:
 		mappedType = go122.EvUserTaskEnd
